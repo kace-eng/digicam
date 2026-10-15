@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Kamera digicam retro dengan date stamp, berjalan sebagai PWA.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Digicam Retro</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <button id="filterBtn" class="chip" type="button">Retro Hangat</button>
+      <button id="installBtn" class="chip chip-install" type="button" hidden>Pasang Aplikasi</button>
+    </header>
+
+    <section class="viewfinder" id="viewfinder">
+      <video id="video" autoplay playsinline muted></video>
+      <div class="date-stamp" id="dateStamp">00 00 '00</div>
+      <div class="flash" id="flash"></div>
+      <div class="pesan" id="pesan" hidden></div>
+    </section>
+
+    <footer class="controls">
+      <button id="thumbBtn" class="thumb" type="button" aria-label="Lihat foto terakhir" hidden></button>
+      <button id="shutterBtn" class="shutter" type="button" aria-label="Ambil foto"></button>
+      <button id="switchBtn" class="switch" type="button" aria-label="Ganti kamera">&#x21BB;</button>
+    </footer>
+  </main>
+
+  <div class="preview" id="preview" hidden>
+    <img id="previewImg" alt="Hasil foto">
+    <div class="preview-actions">
+      <button id="buangBtn" type="button" class="btn btn-ghost">Buang</button>
+      <button id="simpanBtn" type="button" class="btn">Simpan / Bagikan</button>
+    </div>
+  </div>
+
+  <canvas id="canvas" hidden></canvas>
+  <script src="app.js"></script>
+</body>
+</html>

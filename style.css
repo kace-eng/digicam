@@ -1,0 +1,48 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; margin: 0; background: #0b0b0b; color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; overflow: hidden; }
+
+.app { height: 100%; display: flex; flex-direction: column;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); }
+
+.topbar { display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px; gap: 8px; }
+.chip { background: #1b1b1b; color: #f2d9b0; border: 1px solid #3a3a3a; border-radius: 999px;
+  padding: 8px 16px; font-size: .9rem; cursor: pointer; }
+.chip-install { color: #ff9a3c; border-color: #ff9a3c; }
+
+.viewfinder { position: relative; flex: 1; min-height: 0; margin: 0 auto; width: 100%;
+  max-width: 480px; background: #000; overflow: hidden; border-radius: 10px; }
+video { width: 100%; height: 100%; object-fit: cover; }
+video.mirror { transform: scaleX(-1); }
+
+.date-stamp { position: absolute; right: 16px; bottom: 16px; color: #ff7700;
+  font: bold 1.25rem "Courier New", Courier, monospace; letter-spacing: 1px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,.8); pointer-events: none; }
+
+.flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+.flash.on { animation: kedip .25s ease-out; }
+@keyframes kedip { 0% { opacity: .9 } 100% { opacity: 0 } }
+
+.pesan { position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+  padding: 24px; background: rgba(0,0,0,.85); line-height: 1.5; }
+
+.controls { display: flex; justify-content: space-around; align-items: center;
+  padding: 18px 20px 22px; max-width: 480px; width: 100%; margin: 0 auto; }
+.shutter { width: 76px; height: 76px; border-radius: 50%; background: #fff;
+  border: 6px solid #3a3a3a; box-shadow: 0 0 0 3px #fff inset; cursor: pointer;
+  transition: transform .08s; }
+.shutter:active { transform: scale(.9); }
+.switch { width: 52px; height: 52px; border-radius: 50%; background: #1b1b1b; color: #fff;
+  border: 1px solid #3a3a3a; font-size: 1.5rem; cursor: pointer; }
+.thumb { width: 52px; height: 52px; border-radius: 10px; border: 2px solid #fff;
+  background: #222 center / cover no-repeat; cursor: pointer; }
+
+.preview { position: fixed; inset: 0; background: rgba(0,0,0,.95); z-index: 10;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 16px; }
+.preview img { max-width: 100%; max-height: 74vh; border-radius: 8px; }
+.preview-actions { display: flex; gap: 12px; }
+.btn { background: #ff9a3c; color: #111; border: 0; border-radius: 10px;
+  padding: 12px 20px; font-weight: 600; font-size: 1rem; cursor: pointer; }
+.btn-ghost { background: #222; color: #fff; }
+[hidden] { display: none !important; }
